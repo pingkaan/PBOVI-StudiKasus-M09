@@ -48,7 +48,7 @@ class mobil(kendaraan_darat):
         print("Mesin Mobil  Dinyalakan")
 
     def stopEngine():
-        print("Mesin Dimatikan")
+        print("Mesin Mobil Dimatikan")
 
     def maju():
         print("Mobil Bergerak Maju")
@@ -66,7 +66,7 @@ class mobilBalap(mobil):
         self.rear_Wing = rearWing
 
     def race():
-        print("Mobil Sedang Melangsungkan Balapan")
+        print("Mobil  siap Sedang Melangsungkan Balapan")
 
 class mobilCrossroad(mobil):
     def __init__(self, tahunKeluaran, nama, warna, kecepatan, bahanBakar, jumlahRoda, kapasitasPenumpang, jenisMobil,sunroopType,shockBreaker):
@@ -159,8 +159,7 @@ def sunroop():
         if fiturr == "y":
             print("")
             mobilCrossroad.sunroofTertutup()
-        
-        elif fitur == "n":
+        elif fiturr == "n":
             print ("Sunroof Tidak di buka")
         else:
             print("Menu tidak tersedia")
@@ -171,30 +170,35 @@ def sunroop():
         print("Menu tidak tersedia")
     
 def nyalaMobil():
-        tanya= input ("apakah anda ingin mengunakan mobil (y/n):")
+        tanya= input ("apakah anda ingin menyalakan mobil (y/n):")
+        mobil.startEngine()
         if tanya =="y":
             print("""Apa yang ingin anda lakukan:
-                1. Menyalakan mobil
-                2. Mematikan mobil
-                3. Memajukan mobil
-                4. Memundurkan mobil
-                5. Membelokkan mobil
-                6. Balapan""")
+                1. Memajukan mobil
+                2. Memundurkan mobil
+                3. Membelokkan mobil
+                4. Balapan""")
             pilih2=int(input("Masukkan pilihan anda : "))
-            if pilih2 == 1:
-                mobil.startEngine()
-            elif pilih2== 2:
-                mobil.stopEngine()
-            elif pilih2 == 3:
-                mobil.maju()
-            elif pilih2 == 4:
+            
+            if pilih2== 1:
+                mobil.maju() 
+            elif pilih2 == 2:
                 mobil.mundur()
-            elif pilih2 == 5:
+            elif pilih2 == 3:
                 mobil.belok()
-            elif pilih2 == 6:
+            elif pilih2 == 4:
                 mobilBalap.race()
             else:
                 print("Menu tidak tersedia")
+                
+            tanya2= input ("apakah anda ingin mematikan  mobil (y/n):")
+            if tanya2== "y":
+                mobil.stopEngine()
+            elif tanya2 == "n":
+                print("Mesin Mobil Belum Dimatikan ")
+            else:
+                    print("Menu tidak tersedia")
+                    
         elif tanya == "n":
             print("Anda Memilih Untuk Tidak Menggunakan Mobil")
         else:
@@ -235,33 +239,35 @@ def menu2():
         print("")
         tanya= input ("apakah anda ingin mengunakan mobil (y/n):")
         if tanya =="y":
+            mobil.startEngine()
             print("""Apa yang ingin anda lakukan:
-                1. Menyalakan mobil
-                2. Mematikan mobil
-                3. Memajukan mobil
-                4. Memundurkan mobil
-                5. Membelokkan mobil
+                1. Memajukan mobil
+                2. Memundurkan mobil
+                3. Membelokkan mobil
                 """)
             pilih2=int(input("Masukkan pilihan anda : "))
             if pilih2 == 1:
-                mobil.startEngine()
-            elif pilih2== 2:
-                mobil.stopEngine()
-                
-            elif pilih2 == 3:
                 mobil.maju()
                 sunroop()
-
-            elif pilih2 == 4:
+            
+            elif pilih2 == 2:
                 mobil.mundur()
                 sunroop()
 
-            elif pilih2 == 5:
+            elif pilih2 == 3:
                 mobil.belok()
                 sunroop()
 
             else:
                 print("menu tidak tersedia")
+                
+            tanya2= input ("apakah anda ingin mematikan  mobil (y/n):")
+            if tanya2== "y":
+                mobil.stopEngine()
+            elif tanya2 == "n":
+                print(" Mesin Mobil Belum Dimatikan ")
+            else:
+                    print("Menu tidak tersedia")
         elif tanya == "n":
             print("Anda Memilih Untuk Tidak Menggunakan Mobil")
         else:
